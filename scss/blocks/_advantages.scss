@@ -1,0 +1,28 @@
+.advantages {
+  width: 100%;
+  color: #fff;
+}
+
+.advantages-body {
+  width: 100%;
+  margin: 44px 0 0 0;
+  padding: 0 0 56px 0;
+}
+
+.advantages__list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+}
+
+.advantages__item {
+  display: flex;
+  align-items: center;
+}
+
+.advantages-text {
+  max-width: 200px;
+  width: 100%;
+  line-height: 1.6;
+  margin: 0 0 0 24px;
+}

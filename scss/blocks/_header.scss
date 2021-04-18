@@ -1,0 +1,18 @@
+.header {
+  background: linear-gradient(180deg, #0FC5FF 0%, #0FC5FF 0.01%, #0F7CFF 100%);
+  padding: 0;
+  position: relative;
+}
+
+.header__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+@import '_nav.scss';
+@import '_header-content.scss';
+@import '_advantages.scss';
+
