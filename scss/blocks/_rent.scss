@@ -1,0 +1,45 @@
+.rent {
+  position: relative;
+  z-index: 1;
+}
+
+.rent__title {
+  text-align: center;
+}
+
+.rent__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 64px 0 0 0;
+}
+
+.rent-content {
+  max-width: 1070px;
+  width: 100%;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.rent-btn {
+  margin: 64px 0 0 0;
+}
+
+.rent-bg_icon {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-300px,-42%) rotate(-30deg);
+  width: 768px;
+  height: 768px;
+  z-index: -1;
+
+  & svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
+}
