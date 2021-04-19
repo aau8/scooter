@@ -1,0 +1,367 @@
+.nav {
+  width: 100%;
+  padding: 32px 0 0 0;
+
+  @media screen and (max-width: 1150px) {
+    padding: 8px 0 0 0;
+  }
+
+  @media screen and (max-width: 650px) {
+    padding: 16px 0 0 0;
+  }
+}
+
+.nav__body {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav-burger {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  margin: 0 24px 0 0;
+  display: none;
+
+  @media screen and (max-width: 1150px) {
+    display: flex;
+  }
+
+  & span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    border-radius: 10px;
+    background: #fff;
+    position: relative;
+    transition: .2s;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 6px;
+      left: 0;
+      width: 18px;
+      height: 2px;
+      background: #fff;
+      border-radius: 10px;
+      transition: .2s;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 0;
+      width: 12px;
+      height: 2px;
+      background: #fff;
+      border-radius: 10px;
+      transition: .2s;
+    }
+  }
+
+  @media screen and (min-width: $minHover) {
+    
+    &:hover {
+
+      & span,
+      & span::after,
+      & span::before {
+        background: $accent;
+      }
+
+      & span::before {
+        width: 18px;
+      }
+
+    }
+  }
+}
+
+.nav-logo {
+  display: inline-block;
+  min-width: 200px;
+  width: 200px;
+  height: 80px;
+  margin: 0 auto 0 0;
+  
+  & svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  @media screen and (max-width: 1150px) {
+    min-width: auto;
+    width: 130px;
+    height: 60px;
+    overflow: hidden;
+
+    & svg {
+      width: 200px;
+      height: 60px;
+      margin: 0 0 0 -70px;
+    }
+
+    & svg g,
+    & svg defs {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 650px) {
+    display: none;
+  }
+}
+
+.nav-menu {
+  margin: 0 auto;
+
+  & .nav-menu-close {
+    display: none;
+  }
+
+  @media screen and (max-width: 1150px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(0,-120%);
+    width: 100%;
+    height: 100%;
+    background: $linearBg;
+    z-index: 10;
+    transition: .2s;
+
+    & .nav-menu-close {
+      display: block;
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      width: 24px;
+      height: 24px;
+      transition: .2s;
+
+      &:hover {
+        transform: rotate(-90deg);
+
+        &::before,
+        &::after {
+          background: $accent;
+        }
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 18px;
+        height: 2px;
+        background: #fff;
+        transform: translate(-50%,-50%) rotate(45deg);
+        transition: .2s;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 18px;
+        height: 2px;
+        background: #fff;
+        transform: translate(-50%,-50%) rotate(-45deg);
+        transition: .2s;
+      }
+    }
+  }
+
+  &._show {
+    transform: translate(0);
+  }
+}
+
+.nav-menu__list {
+  display: flex;
+  align-items: center;
+
+  @media screen and (max-width: 1150px) {
+    flex-direction: column;
+    padding: 64px 0 0 0;
+  }
+}
+
+.nav-menu-item:not(:last-child) {
+  margin: 0 50px 0 0;
+}
+
+.nav-menu-item {
+
+  @media screen and (max-width: 1150px) {
+    margin: 16px 0!important;
+  }
+}
+
+.nav-menu-item a {
+  font-weight: 700;
+  color: #fff;
+  position: relative;
+  transition: .2s;
+
+  @media screen and (min-width: 1150px) {
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background: #fff;
+      visibility: hidden;
+      transition: .3s;
+    }
+
+    &:hover::before {
+      visibility: visible;
+      width: 40%;
+    }
+  }
+
+  @media screen and (min-width: $minHover) and (max-width: 1150px) {
+    &:hover {
+      color: $accent;
+    }
+  }
+
+  &:active {
+    opacity: .8;
+  }
+}
+
+.nav-menu__contacts-more {
+  display: none;
+
+  @media screen and (max-width: 1150px) {
+    display: block;
+    width: 100%;
+    margin: 32px 0 0 0;
+    padding: 16px 0;
+    position: relative;
+  
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: #fff;
+      opacity: .2;
+    }
+  
+    & .nav__contacts__more {
+      display: flex;
+      justify-content: center;
+    }
+  
+    & .nav__messengers {
+      margin: 0 24px 0 0;
+    }
+  }
+}
+
+.nav__contacts {
+  max-width: 253px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 0 0 auto;
+}
+
+.nav-phone {
+  margin: 0 0 0 auto;
+}
+
+.nav-phone-text {
+  font-size: 30px;
+  font-weight: 900;
+  font-style: italic;
+  line-height: 126%;
+  color: #fff;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #fff;
+
+    @media screen and (max-width: 1150px) {
+      display: none;
+    }
+  }
+
+  & span {
+    color: $accent;
+  }
+
+  @media screen and (max-width: 1150px) {
+    font-size: 24px;
+  }
+
+  @media screen and (max-width: 650px) {
+    display: none;
+  }
+}
+
+.nav-phone-icon {
+  display: none;
+
+  @media screen and (max-width: 650px) {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+
+    & img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.nav__contacts__more {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0 0 0;
+
+  @media screen and (max-width: 1150px) {
+    display: none;
+  }
+}
+
+.nav__messengers {
+  display: flex;
+  align-items: center;
+}
+
+.nav__messengers-item:not(:last-child) {
+  margin: 0 12px 0 0;
+}
+
+.nav-work_time {
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  opacity: .9;
+}
