@@ -35,14 +35,49 @@
     height: 100%;
     background: linear-gradient(270deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 100%);
     pointer-events: none;
+    z-index: 2;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 600px;
+    height: 100%;
+    background: linear-gradient(270deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 100%);
+    transform: rotate(180deg);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  @media screen and (max-width: 1124px) {
+    &::before,
+    &::after {
+      width: 300px;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    &::before,
+    &::after {
+      width: 100px;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    &::before,
+    &::after {
+      display: none;
+    }
   }
 }
 
 .scooter__cards {
   display: flex;
   align-items: flex-start;
-  overflow-x: auto;
-  padding: 0 0 0 416px;
+  // overflow-x: auto;
+  // padding: 0 0 0 416px;
 
   &::-webkit-scrollbar{
     width: 10px;
@@ -60,14 +95,22 @@
 }
 
 .scooter-card {
+  max-width: 416px;
+  width: 100%;
+  // width: 468px!important;
+  // display: block;
   
-  &:not(:last-child) {
-    margin: 0 32px 0 0;
-  }
+  // &:not(:last-child) {
+  //   margin: 0 32px 0 0;
+  // }
 
-  &:last-child {
-    padding: 0 32px 0 0;
-  }
+  // &:first-child {
+  //   margin: 0 0 0 400px;
+  // }
+
+  // &:last-child {
+  //   padding: 0 32px 0 0;
+  // }
 
   &:hover {
     & .scooter-card__body {
@@ -87,13 +130,19 @@
   background: #fff;
   border-radius: 16px;
   border: 1px solid $outline;
-  padding: 32px;
+  // padding: 32px;
   transition: .2s;
+
+  @media screen and (max-width: 416px) {
+    border-radius: 0;
+  }
 }
 
 .scooter-card-img {
   width: 340px;
   height: 300px;
+  margin: 0 auto;
+  padding: 32px 0 0 0;
 
   & img {
     width: 100%;
@@ -107,10 +156,12 @@
   font-size: 24px;
   font-weight: 700;
   margin: 36px 0 0 0;
+  padding: 0 32px;
 }
 
 .scooter-card__list {
   margin: 18px 0 0 0;
+  padding: 0 32px;
 }
 
 .scooter-card-item {
@@ -125,6 +176,12 @@
   justify-content: space-between;
   align-items: center;
   margin: 24px 0 0 0;
+  padding: 0 32px 32px;
+
+  @media screen and (max-width: 400px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .scooter-card__rent-price {
@@ -134,11 +191,30 @@
   &-value {
     font-size: 36px;
     font-weight: 700;
+
+    @media screen and (max-width: 400px) {
+      margin: 0 12px 0 0;
+      
+    }
   }
 
   &-correction {
     font-size: 14px;
     font-weight: 400;
+  }
+
+  @media screen and (max-width: 400px) {
+    flex-direction: row;
+    align-items: center;
+    margin: 0 0 12px 0;
+  }
+}
+
+.scooter-card__rent-btn {
+
+  @media screen and (max-width: 400px) {
+    width: 100%;
+    text-align: center;
   }
 }
 
@@ -153,5 +229,118 @@
   & svg {
     width: 100%;
     height: 100%;
+  }
+}
+
+.scooter-slider-btn-next {
+  position: absolute;
+  bottom: 50%;
+  right: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  background: #F5FCFF;
+  border-radius: 100px;
+  transition: .2s;
+  z-index: 3;
+
+  & svg path {
+    transition: .2s;
+  }
+
+  @media screen and (min-width: $minHover) {
+    &:not(.swiper-button-disabled):hover {
+      background: $linear;
+  
+      & svg path {
+        stroke: white;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    right: 5%;
+  }
+
+  // @media screen and (max-width: 800px) {
+  //   right: 20%;
+  //   bottom: -15%;
+  // }
+
+  // @media screen and (max-width: 480px) {
+  //   right: 5%;
+  //   bottom: -15%;
+  // }
+}
+
+.scooter-slider-btn-prev {
+  position: absolute;
+  bottom: 50%;
+  left: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  background: #F5FCFF;
+  border-radius: 100px;
+  transition: .2s;
+  z-index: 3;
+
+  & svg path {
+    transition: .2s;
+  }
+
+  @media screen and (min-width: $minHover) {
+    &:not(.swiper-button-disabled):hover {
+      background: $linear;
+  
+      & svg path {
+        stroke: white;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    left: 5%;
+  }
+
+  // @media screen and (max-width: 800px) {
+  //   left: 20%;
+  //   bottom: -15%;
+  // }
+
+  // @media screen and (max-width: 480px) {
+  //   left: 5%;
+  //   bottom: -15%;
+  // }
+}
+
+.swiper-button-disabled {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.scooter-slider-shadow {
+  width: 20%;
+  height: 100%;
+}
+
+.scooter-slider-pagination {
+  display: none;
+
+  @media screen and (max-width: 800px) {
+    display: block;
+    position: absolute;
+    bottom: -12%!important;
+    left: 50%!important;
+    transform: translate(-50%,0);
+    text-align: center;
+
+    & .swiper-pagination-bullet-active {
+      background: $accent;
+    }
   }
 }

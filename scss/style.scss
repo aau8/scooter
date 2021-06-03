@@ -12,7 +12,7 @@ $fontFamily: "Montserrat";
 
 //<ПЕРЕМЕННЫЕ>===============================================================================================================================================================
 $maxWidthContainer: 1344;
-$minHover: 0;
+$minHover: 0; // если хочешь убрать hover на телефонах, укажи - 768px
 
 :root {
   --maincolor: #202325;
@@ -153,11 +153,13 @@ textarea {
   background: rgba(255,255,255,.3);
   border: 1px solid rgb(15, 124, 255);
   border-radius: 4px;
+  transform: scale(.9);
   visibility: hidden;
   opacity: 0;
   transition: .2s;
   z-index: 100;
   &._show {
+    transform: scale(1);
     visibility: visible;
     opacity: 1;
   }
